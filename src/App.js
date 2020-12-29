@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <main>
         <Heading />
-        <ListProduct />
+        <ListProduct name="product" href="/" />
         <TotalProduct />
       </main>
     </div>

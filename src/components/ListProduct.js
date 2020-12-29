@@ -5,16 +5,16 @@ function ListProduct(props) {
         <li className="row">
           <div className="col left">
             <div className="thumbnail">
-              <a href={{ props }}>
+              <a href={props.href}>
                 <img
                   src="https://via.placeholder.com/200x150"
-                  alt={{ props }}
+                  alt={props.name}
                 />
               </a>
             </div>
             <div className="detail">
               <div className="name">
-                <a href={{ props }}>PRODUCT ITEM NUMBER 1</a>
+                <a href={props.href}>PRODUCT ITEM NUMBER 1</a>
               </div>
               <div className="description">
                 Description for product item number 1
@@ -51,16 +51,16 @@ function ListProduct(props) {
         <li className="row">
           <div className="col left">
             <div className="thumbnail">
-              <a href={props}>
+              <a href={props.href}>
                 <img
                   src="https://via.placeholder.com/200x150"
-                  alt={{ props }}
+                  alt={props.name}
                 />
               </a>
             </div>
             <div className="detail">
               <div className="name">
-                <a href={{ props }}>PRODUCT ITEM NUMBER 2</a>
+                <a href={props.href}>PRODUCT ITEM NUMBER 2</a>
               </div>
               <div className="description">
                 Description for product item number 2
