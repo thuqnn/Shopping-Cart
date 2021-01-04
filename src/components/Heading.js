@@ -1,4 +1,5 @@
-function Heading() {
+function Heading({ totalItems }) {
+  console.log(totalItems);
   return (
     <header className="container">
       <h1>Shopping Cart</h1>
@@ -6,7 +7,7 @@ function Heading() {
         <li>Home</li>
         <li>Shopping Cart</li>
       </ul>
-      <span className="count">3 items in the bag</span>
+      <span className="count">{totalItems} items in the bag</span>
     </header>
   );
 }

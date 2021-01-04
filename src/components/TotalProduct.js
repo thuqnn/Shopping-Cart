@@ -1,4 +1,15 @@
-function TotalProduct() {
+function TotalProduct({ subTotal }) {
+  function newSubTotal(subTotal) {
+    return new Intl.NumberFormat().format(Math.round(subTotal));
+  }
+  function totalTax(subTotal) {
+    let totalTax = subTotal * 0.1;
+    return newSubTotal(totalTax);
+  }
+  function totalProduct(subTotal) {
+    let total = subTotal + subTotal * 0.1;
+    return newSubTotal(total);
+  }
   return (
     <section className="container">
       <div className="promotion">
@@ -8,13 +19,13 @@ function TotalProduct() {
       <div className="summary">
         <ul>
           <li>
-            Subtotal <span>$21.97</span>
+            Subtotal <span>${newSubTotal(subTotal)}</span>
           </li>
           <li>
-            Tax <span>$5.00</span>
+            Tax <span>${totalTax(subTotal)}</span>
           </li>
           <li className="total">
-            Total <span>$26.97</span>
+            Total <span>${totalProduct(subTotal)}</span>
           </li>
         </ul>
       </div>
