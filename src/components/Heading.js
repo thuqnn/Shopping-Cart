@@ -1,5 +1,4 @@
 function Heading({ totalItems }) {
-  console.log(totalItems);
   return (
     <header className="container">
       <h1>Shopping Cart</h1>

@@ -11,28 +11,26 @@ const PRODUCTS = [
     name: "Apple",
     description: "Delicious apple",
     image: "./image/1.jpeg",
-    price: 100210,
+    price: 1210,
     quantity: 6.5,
   },
   {
     name: "Milk",
     description: "Delicious milk",
     image: "./image/2.jpeg",
-    price: 100111,
+    price: 1111,
     quantity: 3.1,
   },
   {
     name: "Apple Fake",
     description: "Delicious milk",
     image: "./image/3.jpeg",
-    price: 2002456,
+    price: 2456,
     quantity: 5.9,
   },
 ];
 function App() {
   const [products, setProducts] = useState(PRODUCTS);
-  const [inputValues, setInputValues] = useState("");
-  let [total, set_total] = useState(0);
 
   let items = [];
   let totalItems = 0;
@@ -47,7 +45,6 @@ function App() {
         price={products[i].price}
         quantity={products[i].quantity}
         onRemoveProduct={removeProduct}
-        // onHandleChange={onChange}
       />
     );
     totalItems += products[i].quantity;
@@ -59,18 +56,7 @@ function App() {
     );
     //if false [i] remove to array default
   }
-  // function onChange(e) {
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  //   setInputValues({
-  //     [name]: value,
-  //   });
-  //calc_total(value)
-  // }
-  // const calc_total = (value) => {
-  //   total += value;
-  //   set_total(total);
-  // };
+
   return (
     <div className="App">
       <main>

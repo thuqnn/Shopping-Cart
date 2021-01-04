@@ -4,9 +4,7 @@ function ListProduct({
   description,
   price,
   quantity,
-  value,
   onRemoveProduct,
-  onHandleChange,
 }) {
   return (
     <li className="row">
@@ -32,7 +30,6 @@ function ListProduct({
             className="quantity"
             step={1}
             defaultValue={quantity}
-            // onChange={onHandleChange}
           />
         </div>
         <div className="remove">
