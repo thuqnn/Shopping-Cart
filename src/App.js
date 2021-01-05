@@ -11,26 +11,41 @@ const PRODUCTS = [
     name: "Apple",
     description: "Delicious apple",
     image: "./image/1.jpeg",
-    price: 1210,
-    quantity: 6.5,
+    price: 1000,
+    quantity: 0,
   },
   {
     name: "Milk",
     description: "Delicious milk",
     image: "./image/2.jpeg",
-    price: 1111,
-    quantity: 3.1,
+    price: 100,
+    quantity: 0,
   },
   {
     name: "Apple Fake",
     description: "Delicious milk",
     image: "./image/3.jpeg",
-    price: 2456,
-    quantity: 5.9,
+    price: 200,
+    quantity: 0,
   },
 ];
+
 function App() {
   const [products, setProducts] = useState(PRODUCTS);
+
+  const onHandleChange = (newQuantity, productName) => {
+    const newProducts = products.map((product) => {
+      if (product.name !== productName) {
+        return product;
+      }
+      const newProduct = {
+        ...product,
+        quantity: newQuantity,
+      };
+      return newProduct;
+    });
+    setProducts(newProducts);
+  };
 
   let items = [];
   let totalItems = 0;
@@ -44,7 +59,9 @@ function App() {
         description={products[i].description}
         price={products[i].price}
         quantity={products[i].quantity}
+        value={products[i].quantity}
         onRemoveProduct={removeProduct}
+        onQuantityChange={onHandleChange}
       />
     );
     totalItems += products[i].quantity;

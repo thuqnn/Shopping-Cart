@@ -1,3 +1,5 @@
+import classes from "./ListProduct.module.css";
+
 function ListProduct({
   src,
   name,
@@ -5,6 +7,7 @@ function ListProduct({
   price,
   quantity,
   onRemoveProduct,
+  onQuantityChange,
 }) {
   return (
     <li className="row">
@@ -16,9 +19,11 @@ function ListProduct({
         </div>
         <div className="detail">
           <div className="name">
-            <a href="/">{name}</a>
+            <a href="/" style={{ color: "red", fontSize: "40px" }}>
+              {name}
+            </a>
           </div>
-          <div className="description">{description}</div>
+          <div className={classes.listItem}>{description}</div>
           <div className="price">${price}</div>
         </div>
       </div>
@@ -29,7 +34,10 @@ function ListProduct({
             type="number"
             className="quantity"
             step={1}
-            defaultValue={quantity}
+            value={quantity}
+            onChange={(e) => {
+              onQuantityChange(e.target.value, name);
+            }}
           />
         </div>
         <div className="remove">

@@ -1,14 +1,14 @@
 function TotalProduct({ subTotal }) {
-  function newSubTotal(subTotal) {
+  function formatCurrency(subTotal) {
     return new Intl.NumberFormat().format(Math.round(subTotal));
   }
   function totalTax(subTotal) {
     let totalTax = subTotal * 0.1;
-    return newSubTotal(totalTax);
+    return formatCurrency(totalTax);
   }
   function totalProduct(subTotal) {
     let total = subTotal + subTotal * 0.1;
-    return newSubTotal(total);
+    return formatCurrency(total);
   }
   return (
     <section className="container">
@@ -19,7 +19,7 @@ function TotalProduct({ subTotal }) {
       <div className="summary">
         <ul>
           <li>
-            Subtotal <span>${newSubTotal(subTotal)}</span>
+            Subtotal <span>${formatCurrency(subTotal)}</span>
           </li>
           <li>
             Tax <span>${totalTax(subTotal)}</span>
