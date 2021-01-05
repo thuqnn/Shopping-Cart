@@ -40,8 +40,9 @@ function App() {
       }
       const newProduct = {
         ...product,
-        quantity: newQuantity,
+        quantity: parseInt(newQuantity),
       };
+
       return newProduct;
     });
     setProducts(newProducts);

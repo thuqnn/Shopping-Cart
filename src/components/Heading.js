@@ -6,10 +6,7 @@ function Heading({ totalItems }) {
         <li>Home</li>
         <li>Shopping Cart</li>
       </ul>
-      <span className="count">
-        {totalItems}
-        items in the bag
-      </span>
+      <span className="count">{totalItems}&nbsp; items in the bag</span>
     </header>
   );
 }
