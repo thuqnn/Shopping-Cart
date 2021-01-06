@@ -1,0 +1,28 @@
+/* ---  --- */
+
+.breadcrumb {
+  color: #7d7d7d;
+}
+
+.breadcrumb li {
+  float: left;
+  padding: 0 6px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.breadcrumb li:first-child {
+  padding-left: 2px;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: " \276f";
+  padding-left: 8px;
+}
+
+.count {
+  float: right;
+  color: #333333;
+  height: 20px;
+  line-height: 20px;
+}

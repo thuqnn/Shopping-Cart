@@ -1,6 +1,14 @@
-function TotalProduct({ subTotal }) {
+import classes from "./TotalProduct.module.css";
+
+function TotalProduct({ listProduct }) {
+  const subTotal = listProduct.reduce((total, product) => {
+    return total + +product.quantity * +product.price;
+  }, 0);
   function formatCurrency(subTotal) {
-    return new Intl.NumberFormat().format(Math.round(subTotal));
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(Math.round(subTotal));
   }
   function totalTax(subTotal) {
     let totalTax = subTotal * 0.1;
@@ -12,24 +20,24 @@ function TotalProduct({ subTotal }) {
   }
   return (
     <section className="container">
-      <div className="promotion">
+      <div className={classes.promotion}>
         <label htmlFor="promo-code">Have A Promo Code?</label>
         <input type="text" id="promo-code" /> <button type="button" />
       </div>
-      <div className="summary">
+      <div className={classes.summary}>
         <ul>
           <li>
-            Subtotal <span>${formatCurrency(subTotal)}</span>
+            Subtotal <span>{formatCurrency(subTotal)}</span>
           </li>
           <li>
-            Tax <span>${totalTax(subTotal)}</span>
+            Tax (10%)<span>{totalTax(subTotal)}</span>
           </li>
-          <li className="total">
-            Total <span>${totalProduct(subTotal)}</span>
+          <li className={classes.total}>
+            Total <span>{totalProduct(subTotal)}</span>
           </li>
         </ul>
       </div>
-      <div className="checkout">
+      <div className={classes.checkout}>
         <button type="button">Check Out</button>
       </div>
     </section>
