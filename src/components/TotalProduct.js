@@ -21,17 +21,17 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
     setPmCode(value);
   };
 
-  function formatCurrency(subTotal) {
+  const formatCurrency = (subTotal) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
     }).format(Math.round(subTotal));
-  }
-  function totalTax(subTotal) {
+  };
+  const totalTax = (subTotal) => {
     let totalTax = subTotal * 0.1;
     return formatCurrency(totalTax);
-  }
-  function totalProduct(subTotal) {
+  };
+  const totalProduct = (subTotal) => {
     let convertTotal =
       discount.hasOwnProperty("discount") && discount.discount.slice(0, -1);
     if (convertTotal.length >= 0) {
@@ -40,7 +40,7 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
       return formatCurrency(total);
     }
     return formatCurrency(subTotal);
-  }
+  };
   return (
     <section className="container">
       <div className={classes.promotion}>
@@ -55,6 +55,7 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
           onClick={() => {
             if (onCheckPromoCode(pmCode)) {
               setDiscount(PROMOTIONS.find((promo) => promo.code === pmCode));
+              //if true return first [i]
             }
           }}
           type="button"

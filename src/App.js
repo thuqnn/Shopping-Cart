@@ -25,12 +25,12 @@ function App() {
     setProducts(newProducts);
   };
 
-  function removeProduct(name) {
+  const removeProduct = (name) => {
     setProducts((products) =>
       products.filter((product) => product.name !== name)
     );
     //if false [i] remove to array default
-  }
+  };
 
   const onCheckEnterPromo = (code) => {
     const data = PROMOTIONS.find((item) => item.code === code);
