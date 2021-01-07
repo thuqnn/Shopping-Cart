@@ -31,12 +31,15 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
     let totalTax = subTotal * 0.1;
     return formatCurrency(totalTax);
   }
-  function totalProduct(subTotal, discount) {
+  function totalProduct(subTotal) {
     let convertTotal =
       discount.hasOwnProperty("discount") && discount.discount.slice(0, -1);
-    let discounts = (subTotal * parseInt(convertTotal)) / 100;
-    let total = subTotal - discounts + subTotal * 0.1;
-    return formatCurrency(total);
+    if (convertTotal.length >= 0) {
+      let discounts = (subTotal * parseInt(convertTotal)) / 100;
+      let total = subTotal - +discounts + subTotal * 0.1;
+      return formatCurrency(total);
+    }
+    return subTotal;
   }
   return (
     <section className="container">
@@ -74,7 +77,7 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
             Tax (10%)<span>{totalTax(subTotal)}</span>
           </li>
           <li className={classes.total}>
-            Total <span>{totalProduct(subTotal, discount)}</span>
+            Total <span>{totalProduct(subTotal)}</span>
           </li>
         </ul>
       </div>
