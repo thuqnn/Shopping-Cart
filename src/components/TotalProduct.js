@@ -50,8 +50,9 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
         />
         <button
           onClick={() => {
-            onCheckPromoCode(pmCode);
-            setDiscount(PROMOTIONS.find((promo) => promo.code === pmCode));
+            if (onCheckPromoCode(pmCode)) {
+              setDiscount(PROMOTIONS.find((promo) => promo.code === pmCode));
+            }
           }}
           type="button"
         />
