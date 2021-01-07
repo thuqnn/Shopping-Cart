@@ -39,7 +39,7 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
       let total = subTotal - +discounts + subTotal * 0.1;
       return formatCurrency(total);
     }
-    return subTotal;
+    return formatCurrency(subTotal);
   }
   return (
     <section className="container">
