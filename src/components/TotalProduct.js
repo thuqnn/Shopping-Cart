@@ -7,7 +7,7 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
   const [discount, setDiscount] = useState({ discount: "0%" });
 
   const subTotal = listProduct.reduce((total, product) => {
-    return total + +product.quantity * +product.price;
+    return total + parseInt(product.quantity) * parseInt(product.price);
   }, 0);
 
   const formatDiscount = (code) => {
@@ -36,7 +36,7 @@ function TotalProduct({ listProduct, onCheckPromoCode }) {
       discount.hasOwnProperty("discount") && discount.discount.slice(0, -1);
     if (convertTotal.length >= 0) {
       let discounts = (subTotal * parseInt(convertTotal)) / 100;
-      let total = subTotal - +discounts + subTotal * 0.1;
+      let total = subTotal - parseInt(discounts) + subTotal * 0.1;
       return formatCurrency(total);
     }
     return formatCurrency(subTotal);
