@@ -4,7 +4,7 @@ import { PROMOTIONS } from "../mockup";
 
 function TotalProduct({ listProduct, onCheckPromoCode }) {
   const [pmCode, setPmCode] = useState("");
-  const [discount, setDiscount] = useState({});
+  const [discount, setDiscount] = useState({ discount: "0%" });
 
   const subTotal = listProduct.reduce((total, product) => {
     return total + +product.quantity * +product.price;
